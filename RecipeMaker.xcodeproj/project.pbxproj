@@ -7,23 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9FB17BD0B91CB024780D5B50 /* Pods_RecipeMaker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 887F055BE6CB513F4E5ABCE5 /* Pods_RecipeMaker.framework */; };
 		A456AE782BB62640008448A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AE772BB62640008448A5 /* AppDelegate.swift */; };
 		A456AE7A2BB62640008448A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AE792BB62640008448A5 /* SceneDelegate.swift */; };
-		A456AE7C2BB62640008448A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AE7B2BB62640008448A5 /* ViewController.swift */; };
+		A456AE7C2BB62640008448A5 /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AE7B2BB62640008448A5 /* RecipeListViewController.swift */; };
 		A456AE822BB62640008448A5 /* RecipeMaker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A456AE802BB62640008448A5 /* RecipeMaker.xcdatamodeld */; };
 		A456AE842BB62642008448A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A456AE832BB62642008448A5 /* Assets.xcassets */; };
 		A456AE872BB62642008448A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A456AE852BB62642008448A5 /* LaunchScreen.storyboard */; };
+		A456AE8F2BB67339008448A5 /* recipetypes.xml in Resources */ = {isa = PBXBuildFile; fileRef = A456AE8E2BB67339008448A5 /* recipetypes.xml */; };
+		A456AE972BB6766D008448A5 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AE962BB6766D008448A5 /* RecipeModel.swift */; };
+		A456AE992BB6774E008448A5 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AE982BB6774E008448A5 /* AddRecipeViewController.swift */; };
+		A456AE9C2BB677A9008448A5 /* RecipeItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AE9A2BB677A9008448A5 /* RecipeItem+CoreDataClass.swift */; };
+		A456AE9D2BB677A9008448A5 /* RecipeItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AE9B2BB677A9008448A5 /* RecipeItem+CoreDataProperties.swift */; };
+		A456AE9F2BB678A1008448A5 /* RecipeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AE9E2BB678A1008448A5 /* RecipeListCell.swift */; };
+		A456AEA12BB67AAF008448A5 /* RecipeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AEA02BB67AAF008448A5 /* RecipeListViewModel.swift */; };
+		A456AEA42BB67FD6008448A5 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AEA32BB67FD6008448A5 /* ViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0659E4E3A009617B725F710B /* Pods-RecipeMaker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeMaker.release.xcconfig"; path = "Target Support Files/Pods-RecipeMaker/Pods-RecipeMaker.release.xcconfig"; sourceTree = "<group>"; };
+		887F055BE6CB513F4E5ABCE5 /* Pods_RecipeMaker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecipeMaker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A456AE742BB62640008448A5 /* RecipeMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A456AE772BB62640008448A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A456AE792BB62640008448A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A456AE7B2BB62640008448A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A456AE7B2BB62640008448A5 /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		A456AE812BB62640008448A5 /* RecipeMaker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeMaker.xcdatamodel; sourceTree = "<group>"; };
 		A456AE832BB62642008448A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A456AE862BB62642008448A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A456AE882BB62642008448A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A456AE8E2BB67339008448A5 /* recipetypes.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = recipetypes.xml; sourceTree = "<group>"; };
+		A456AE962BB6766D008448A5 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		A456AE982BB6774E008448A5 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
+		A456AE9A2BB677A9008448A5 /* RecipeItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A456AE9B2BB677A9008448A5 /* RecipeItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RecipeItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A456AE9E2BB678A1008448A5 /* RecipeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListCell.swift; sourceTree = "<group>"; };
+		A456AEA02BB67AAF008448A5 /* RecipeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewModel.swift; sourceTree = "<group>"; };
+		A456AEA32BB67FD6008448A5 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		EB1053C3BB33BFF5CAB2CAB0 /* Pods-RecipeMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeMaker.debug.xcconfig"; path = "Target Support Files/Pods-RecipeMaker/Pods-RecipeMaker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +51,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FB17BD0B91CB024780D5B50 /* Pods_RecipeMaker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DA8312B013DA7942E9DA446 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EB1053C3BB33BFF5CAB2CAB0 /* Pods-RecipeMaker.debug.xcconfig */,
+				0659E4E3A009617B725F710B /* Pods-RecipeMaker.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A456AE6B2BB62640008448A5 = {
 			isa = PBXGroup;
 			children = (
 				A456AE762BB62640008448A5 /* RecipeMaker */,
 				A456AE752BB62640008448A5 /* Products */,
+				0DA8312B013DA7942E9DA446 /* Pods */,
+				C734B63B2D1BF2944A9FAC45 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +88,79 @@
 		A456AE762BB62640008448A5 /* RecipeMaker */ = {
 			isa = PBXGroup;
 			children = (
+				A456AEA52BB67FED008448A5 /* Utils */,
+				A456AE902BB6760B008448A5 /* Model */,
+				A456AE912BB67616008448A5 /* View */,
+				A456AE922BB6761D008448A5 /* ViewModel */,
 				A456AE772BB62640008448A5 /* AppDelegate.swift */,
 				A456AE792BB62640008448A5 /* SceneDelegate.swift */,
-				A456AE7B2BB62640008448A5 /* ViewController.swift */,
 				A456AE832BB62642008448A5 /* Assets.xcassets */,
 				A456AE852BB62642008448A5 /* LaunchScreen.storyboard */,
 				A456AE882BB62642008448A5 /* Info.plist */,
-				A456AE802BB62640008448A5 /* RecipeMaker.xcdatamodeld */,
 			);
 			path = RecipeMaker;
+			sourceTree = "<group>";
+		};
+		A456AE902BB6760B008448A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A456AE932BB67648008448A5 /* Data */,
+				A456AE962BB6766D008448A5 /* RecipeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A456AE912BB67616008448A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A456AE7B2BB62640008448A5 /* RecipeListViewController.swift */,
+				A456AE982BB6774E008448A5 /* AddRecipeViewController.swift */,
+				A456AE9E2BB678A1008448A5 /* RecipeListCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A456AE922BB6761D008448A5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A456AEA02BB67AAF008448A5 /* RecipeListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A456AE932BB67648008448A5 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A456AE8E2BB67339008448A5 /* recipetypes.xml */,
+				A456AE802BB62640008448A5 /* RecipeMaker.xcdatamodeld */,
+				A456AE9A2BB677A9008448A5 /* RecipeItem+CoreDataClass.swift */,
+				A456AE9B2BB677A9008448A5 /* RecipeItem+CoreDataProperties.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		A456AEA22BB67FB9008448A5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A456AEA32BB67FD6008448A5 /* ViewExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A456AEA52BB67FED008448A5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				A456AEA22BB67FB9008448A5 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C734B63B2D1BF2944A9FAC45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				887F055BE6CB513F4E5ABCE5 /* Pods_RecipeMaker.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +170,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A456AE8B2BB62642008448A5 /* Build configuration list for PBXNativeTarget "RecipeMaker" */;
 			buildPhases = (
+				A42F4CB7AC5064AB4C73D694 /* [CP] Check Pods Manifest.lock */,
 				A456AE702BB62640008448A5 /* Sources */,
 				A456AE712BB62640008448A5 /* Frameworks */,
 				A456AE722BB62640008448A5 /* Resources */,
+				428A3B149086383B88A76112 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,21 +224,71 @@
 			buildActionMask = 2147483647;
 			files = (
 				A456AE872BB62642008448A5 /* LaunchScreen.storyboard in Resources */,
+				A456AE8F2BB67339008448A5 /* recipetypes.xml in Resources */,
 				A456AE842BB62642008448A5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		428A3B149086383B88A76112 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RecipeMaker/Pods-RecipeMaker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RecipeMaker/Pods-RecipeMaker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RecipeMaker/Pods-RecipeMaker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A42F4CB7AC5064AB4C73D694 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RecipeMaker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A456AE702BB62640008448A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A456AEA42BB67FD6008448A5 /* ViewExtensions.swift in Sources */,
+				A456AE9D2BB677A9008448A5 /* RecipeItem+CoreDataProperties.swift in Sources */,
+				A456AE992BB6774E008448A5 /* AddRecipeViewController.swift in Sources */,
 				A456AE822BB62640008448A5 /* RecipeMaker.xcdatamodeld in Sources */,
-				A456AE7C2BB62640008448A5 /* ViewController.swift in Sources */,
+				A456AE7C2BB62640008448A5 /* RecipeListViewController.swift in Sources */,
+				A456AE9C2BB677A9008448A5 /* RecipeItem+CoreDataClass.swift in Sources */,
+				A456AE972BB6766D008448A5 /* RecipeModel.swift in Sources */,
 				A456AE782BB62640008448A5 /* AppDelegate.swift in Sources */,
 				A456AE7A2BB62640008448A5 /* SceneDelegate.swift in Sources */,
+				A456AEA12BB67AAF008448A5 /* RecipeListViewModel.swift in Sources */,
+				A456AE9F2BB678A1008448A5 /* RecipeListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,12 +427,14 @@
 		};
 		A456AE8C2BB62642008448A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB1053C3BB33BFF5CAB2CAB0 /* Pods-RecipeMaker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J62LRRM8N4;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecipeMaker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -306,12 +456,14 @@
 		};
 		A456AE8D2BB62642008448A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0659E4E3A009617B725F710B /* Pods-RecipeMaker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J62LRRM8N4;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RecipeMaker/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
