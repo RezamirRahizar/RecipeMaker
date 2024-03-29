@@ -15,7 +15,7 @@ class AddRecipeViewController: UIViewController {
     var recipeType: String = ""
     private let scrollView = UIScrollView()
     private lazy var stackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [nameTextField, typeTextField])
+        let stack = UIStackView(arrangedSubviews: [nameTextField, typeTextField, imageView, imagePickerButton])
         stack.axis = .vertical
         stack.spacing = 8
         
@@ -37,8 +37,8 @@ class AddRecipeViewController: UIViewController {
         let textField = UITextField()
         textField.placeholder = "Select recipe type"
         textField.delegate = self
-        textField.inputView = tempPicker
-        textField.inputAccessoryView = tempPicker.toolbar
+        textField.inputView = recipeTypePicker
+        textField.inputAccessoryView = recipeTypePicker.toolbar
         
         textField.clearButtonMode = .whileEditing
         textField.borderStyle = .roundedRect
@@ -46,7 +46,7 @@ class AddRecipeViewController: UIViewController {
         return textField
     }()
     
-    private lazy var tempPicker: RecipeTypePickerView = {
+    private lazy var recipeTypePicker: RecipeTypePickerView = {
         let picker = RecipeTypePickerView()
         picker.dataSource = self
         picker.delegate = self
@@ -57,8 +57,24 @@ class AddRecipeViewController: UIViewController {
     }()
     
     //Add imagePicker
+    private lazy var imagePickerButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Upload an image for the recipe", for: .normal)
+        button.addTarget(self, action: #selector(showImagePicker), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
+    }()
+    
     //Add reactive steps
     //Add reactive ingredients
+    
     private lazy var submitButton: UIButton = {
         let button = UIButton(type: .system)
         
@@ -104,8 +120,20 @@ class AddRecipeViewController: UIViewController {
         }
     }
     
+    @objc func showImagePicker(){
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary // You can also use .camera to allow taking a new photo
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     @objc func addRecipe(){
         
+    }
+    
+    private func didSelectRecipe(_ selectedType: String) {
+        self.recipeType = selectedType
+        typeTextField.text = selectedType
     }
 }
 
@@ -128,6 +156,7 @@ extension AddRecipeViewController: UITextFieldDelegate {
     }
 }
 
+//MARK: PickerView Delegates
 extension AddRecipeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -147,21 +176,45 @@ extension AddRecipeViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.typeTextField.text = recipeTypes?[row]
+        didSelectRecipe(recipeTypes?[row] ?? "")
     }
 }
 
 extension AddRecipeViewController: RecipeTypePickerViewDelegate {
     func didTapDone() {
-        let row = self.tempPicker.selectedRow(inComponent: 0)
-        tempPicker.selectRow(row, inComponent: 0, animated: false)
-        typeTextField.text = recipeTypes?[row]
+        let row = self.recipeTypePicker.selectedRow(inComponent: 0)
+        recipeTypePicker.selectRow(row, inComponent: 0, animated: false)
+        didSelectRecipe(recipeTypes?[row] ?? "")
+        
         typeTextField.resignFirstResponder()
     }
 
     func didTapCancel() {
         typeTextField.text = nil
         typeTextField.resignFirstResponder()
+    }
+}
+
+extension AddRecipeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    // Image picker delegate method for handling selected image
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[.originalImage] as? UIImage {
+            imageView.image = pickedImage
+            imageView.snp.remakeConstraints { make in
+                make.height.equalTo(200)
+            }
+        }else{
+            imageView.snp.remakeConstraints { make in
+                make.height.equalTo(0)
+            }
+        }
+       
+        dismiss(animated: true, completion: nil)
+    }
+   
+    // Image picker delegate method for handling cancellation
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }
 
