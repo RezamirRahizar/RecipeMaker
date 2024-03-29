@@ -57,13 +57,15 @@ class RecipeListViewController: UIViewController {
         }.disposed(by: disposeBag)
         
         //Go to details page
-        tableView.rx.modelSelected(RecipeModel.self).bind { model in
-            print(model.name)
-            // Deselect the row after selection
-            if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
-                self.tableView.deselectRow(at: selectedIndexPath, animated: true)
-            }
+        tableView.rx.modelSelected(RecipeItem.self).bind {[weak self] model in
             
+            // Deselect the row after selection
+            if let selectedIndexPath = self?.tableView.indexPathForSelectedRow {
+                self?.tableView.deselectRow(at: selectedIndexPath, animated: true)
+            }
+            let vc = RecipeDetailsViewController()
+            vc.setDetails(data: model)
+            self?.navigationController?.pushViewController(vc, animated: true)
             
         }.disposed(by: disposeBag)
         
@@ -71,8 +73,9 @@ class RecipeListViewController: UIViewController {
         tableView.rx.itemDeleted
             .subscribe(onNext: { [weak self] indexPath in
                 guard var currentData = self?.viewModel.recipes.value else { return }
-                currentData.remove(at: indexPath.row)
                 self?.context?.delete(currentData[indexPath.row])
+                currentData.remove(at: indexPath.row)
+                print("IndexPath \(indexPath.row)")
                 self?.viewModel.recipes.accept(currentData)
                 do {
                     try self?.context?.save()
@@ -85,7 +88,7 @@ class RecipeListViewController: UIViewController {
     }
     
     @objc func addRecipe(){
-        let vc = AddRecipeViewController()
+        let vc = RecipeDetailsViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 

@@ -1,6 +1,6 @@
 
 //
-//  AddRecipeViewModel.swift
+//  RecipeDetailsViewModel.swift
 //  RecipeMaker
 //
 //  Created by Rezamir Rahizar on 29/03/2024.
@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import CoreData
 
-class AddRecipeViewModel {
+class RecipeDetailsViewModel {
     var didComplete =  BehaviorRelay<Bool?>(value: nil)
     let context: NSManagedObjectContext?
     let targetVC: UIViewController?
