@@ -13,9 +13,19 @@ class AddRecipeViewController: UIViewController {
     var recipeTypes: [String]? = []
     var recipeName: String = ""
     var recipeType: String = ""
+    var recipeIngredients: String = ""
+    var recipeSteps: String = ""
+    
     private let scrollView = UIScrollView()
     private lazy var stackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [nameTextField, typeTextField, imageView, imagePickerButton])
+        let stack = UIStackView(arrangedSubviews: [
+            nameTextField,
+            typeTextField,
+            imageView,
+            imagePickerButton,
+            ingredientsTextView,
+            stepsTextView
+        ])
         stack.axis = .vertical
         stack.spacing = 8
         
@@ -56,7 +66,6 @@ class AddRecipeViewController: UIViewController {
         return picker
     }()
     
-    //Add imagePicker
     private lazy var imagePickerButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Upload an image for the recipe", for: .normal)
@@ -72,8 +81,35 @@ class AddRecipeViewController: UIViewController {
         return imageView
     }()
     
-    //Add reactive steps
-    //Add reactive ingredients
+    private lazy var ingredientsTextView: UITextView = {
+        let textView = UITextView()
+        textView.isScrollEnabled = true
+        textView.isEditable = true
+        textView.text = "Enter the ingredients for your recipe"
+        textView.font = UIFont.systemFont(ofSize: 16)
+        textView.delegate = self
+        textView.layer.cornerRadius = 10
+        textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.layer.borderWidth = 0.5
+        textView.contentInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 5)
+        
+        return textView
+    }()
+    
+    private lazy var stepsTextView: UITextView = {
+        let textView = UITextView()
+        textView.isScrollEnabled = true
+        textView.isEditable = true
+        textView.text = "Enter the steps for your recipe"
+        textView.font = UIFont.systemFont(ofSize: 16)
+        textView.delegate = self
+        textView.layer.cornerRadius = 10
+        textView.layer.borderColor = UIColor.lightGray.cgColor
+        textView.layer.borderWidth = 0.5
+        textView.contentInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 5)
+        
+        return textView
+    }()
     
     private lazy var submitButton: UIButton = {
         let button = UIButton(type: .system)
@@ -117,6 +153,14 @@ class AddRecipeViewController: UIViewController {
         
         stackView.snp.makeConstraints { make in
             make.edges.width.equalToSuperview()
+        }
+        
+        ingredientsTextView.snp.makeConstraints { make in
+            make.height.equalTo(100)
+        }
+        
+        stepsTextView.snp.makeConstraints { make in
+            make.height.equalTo(100)
         }
     }
     
@@ -215,6 +259,18 @@ extension AddRecipeViewController: UIImagePickerControllerDelegate, UINavigation
     // Image picker delegate method for handling cancellation
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension AddRecipeViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        if textView == ingredientsTextView {
+            self.recipeIngredients = textView.text
+        }else if textView == stepsTextView{
+            self.recipeSteps = textView.text
+        }else{
+            print("Text view not found")
+        }
     }
 }
 
