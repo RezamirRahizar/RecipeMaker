@@ -23,8 +23,8 @@
 		A456AEA12BB67AAF008448A5 /* RecipeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AEA02BB67AAF008448A5 /* RecipeListViewModel.swift */; };
 		A456AEA42BB67FD6008448A5 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AEA32BB67FD6008448A5 /* ViewExtensions.swift */; };
 		A456AEA92BB69965008448A5 /* RecipeTypesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AEA82BB69965008448A5 /* RecipeTypesManager.swift */; };
-		A456AEAB2BB6A578008448A5 /* RecipeTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AEAA2BB6A578008448A5 /* RecipeTypeViewController.swift */; };
-		A456AEAD2BB6A7A2008448A5 /* RecipePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AEAC2BB6A7A2008448A5 /* RecipePickerView.swift */; };
+		A456AEAF2BB6AC42008448A5 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AEAE2BB6AC42008448A5 /* RecipeDetailsViewController.swift */; };
+		A456AEB12BB6B834008448A5 /* RecipeTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AEB02BB6B834008448A5 /* RecipeTypePickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,8 +47,8 @@
 		A456AEA02BB67AAF008448A5 /* RecipeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewModel.swift; sourceTree = "<group>"; };
 		A456AEA32BB67FD6008448A5 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		A456AEA82BB69965008448A5 /* RecipeTypesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTypesManager.swift; sourceTree = "<group>"; };
-		A456AEAA2BB6A578008448A5 /* RecipeTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTypeViewController.swift; sourceTree = "<group>"; };
-		A456AEAC2BB6A7A2008448A5 /* RecipePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipePickerView.swift; sourceTree = "<group>"; };
+		A456AEAE2BB6AC42008448A5 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
+		A456AEB02BB6B834008448A5 /* RecipeTypePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTypePickerView.swift; sourceTree = "<group>"; };
 		EB1053C3BB33BFF5CAB2CAB0 /* Pods-RecipeMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeMaker.debug.xcconfig"; path = "Target Support Files/Pods-RecipeMaker/Pods-RecipeMaker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,8 +123,8 @@
 				A456AE7B2BB62640008448A5 /* RecipeListViewController.swift */,
 				A456AE982BB6774E008448A5 /* AddRecipeViewController.swift */,
 				A456AE9E2BB678A1008448A5 /* RecipeListCell.swift */,
-				A456AEAA2BB6A578008448A5 /* RecipeTypeViewController.swift */,
-				A456AEAC2BB6A7A2008448A5 /* RecipePickerView.swift */,
+				A456AEAE2BB6AC42008448A5 /* RecipeDetailsViewController.swift */,
+				A456AEB02BB6B834008448A5 /* RecipeTypePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,17 +289,17 @@
 			files = (
 				A456AEA42BB67FD6008448A5 /* ViewExtensions.swift in Sources */,
 				A456AE9D2BB677A9008448A5 /* RecipeItem+CoreDataProperties.swift in Sources */,
-				A456AEAB2BB6A578008448A5 /* RecipeTypeViewController.swift in Sources */,
 				A456AE992BB6774E008448A5 /* AddRecipeViewController.swift in Sources */,
 				A456AEA92BB69965008448A5 /* RecipeTypesManager.swift in Sources */,
 				A456AE822BB62640008448A5 /* RecipeMaker.xcdatamodeld in Sources */,
 				A456AE7C2BB62640008448A5 /* RecipeListViewController.swift in Sources */,
 				A456AE9C2BB677A9008448A5 /* RecipeItem+CoreDataClass.swift in Sources */,
-				A456AEAD2BB6A7A2008448A5 /* RecipePickerView.swift in Sources */,
 				A456AE972BB6766D008448A5 /* RecipeModel.swift in Sources */,
 				A456AE782BB62640008448A5 /* AppDelegate.swift in Sources */,
 				A456AE7A2BB62640008448A5 /* SceneDelegate.swift in Sources */,
 				A456AEA12BB67AAF008448A5 /* RecipeListViewModel.swift in Sources */,
+				A456AEAF2BB6AC42008448A5 /* RecipeDetailsViewController.swift in Sources */,
+				A456AEB12BB6B834008448A5 /* RecipeTypePickerView.swift in Sources */,
 				A456AE9F2BB678A1008448A5 /* RecipeListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

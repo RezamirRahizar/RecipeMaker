@@ -10,12 +10,12 @@ import UIKit
 import SnapKit
 
 class AddRecipeViewController: UIViewController {
-    
+    var recipeTypes: [String]? = []
     var recipeName: String = ""
     var recipeType: String = ""
     private let scrollView = UIScrollView()
     private lazy var stackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [nameTextField, pickerContainer])
+        let stack = UIStackView(arrangedSubviews: [nameTextField, typeTextField])
         stack.axis = .vertical
         stack.spacing = 8
         
@@ -33,10 +33,27 @@ class AddRecipeViewController: UIViewController {
         return textField
     }()
     
-    private lazy var pickerContainer: RecipePickerView = {
-        let pickerView = RecipePickerView(type: nil, targetVC: self)
+    private lazy var typeTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Select recipe type"
+        textField.delegate = self
+        textField.inputView = tempPicker
+        textField.inputAccessoryView = tempPicker.toolbar
         
-        return pickerView
+        textField.clearButtonMode = .whileEditing
+        textField.borderStyle = .roundedRect
+        
+        return textField
+    }()
+    
+    private lazy var tempPicker: RecipeTypePickerView = {
+        let picker = RecipeTypePickerView()
+        picker.dataSource = self
+        picker.delegate = self
+        picker.toolbarDelegate = self
+        picker.reloadAllComponents()
+        
+        return picker
     }()
     
     //Add imagePicker
@@ -56,7 +73,7 @@ class AddRecipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        recipeTypes = RecipeTypesManager().getTypes()
         setupViews()
         layoutViews()
     }
@@ -96,7 +113,7 @@ extension AddRecipeViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let updatedText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
         self.recipeName = updatedText
-       
+        
         return true
     }
     
@@ -108,6 +125,43 @@ extension AddRecipeViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+}
+
+extension AddRecipeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        guard let recipeTypes else {
+            return 0
+        }
+        
+        return recipeTypes.count
+    }
+
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return recipeTypes?[row]
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.typeTextField.text = recipeTypes?[row]
+    }
+}
+
+extension AddRecipeViewController: RecipeTypePickerViewDelegate {
+    func didTapDone() {
+        let row = self.tempPicker.selectedRow(inComponent: 0)
+        tempPicker.selectRow(row, inComponent: 0, animated: false)
+        typeTextField.text = recipeTypes?[row]
+        typeTextField.resignFirstResponder()
+    }
+
+    func didTapCancel() {
+        typeTextField.text = nil
+        typeTextField.resignFirstResponder()
     }
 }
 
