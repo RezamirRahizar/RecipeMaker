@@ -10,6 +10,11 @@ import UIKit
 import SnapKit
 import CoreData
 
+enum DetailsState {
+    case empty
+    case nonempty
+}
+
 class AddRecipeViewController: UIViewController {
     let context: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
@@ -172,6 +177,10 @@ class AddRecipeViewController: UIViewController {
         stepsTextView.snp.makeConstraints { make in
             make.height.equalTo(100)
         }
+    }
+    
+    func setDetails(model: RecipeModel?){
+        guard let model else { return }
     }
     
     @objc func showImagePicker(){

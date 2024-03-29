@@ -63,6 +63,8 @@ class RecipeListViewController: UIViewController {
             if let selectedIndexPath = self.tableView.indexPathForSelectedRow {
                 self.tableView.deselectRow(at: selectedIndexPath, animated: true)
             }
+            
+            
         }.disposed(by: disposeBag)
         
         //Handle deletion
@@ -70,7 +72,13 @@ class RecipeListViewController: UIViewController {
             .subscribe(onNext: { [weak self] indexPath in
                 guard var currentData = self?.viewModel.recipes.value else { return }
                 currentData.remove(at: indexPath.row)
+                self?.context?.delete(currentData[indexPath.row])
                 self?.viewModel.recipes.accept(currentData)
+                do {
+                    try self?.context?.save()
+                }catch {
+                    //print error
+                }
                 
             }).disposed(by: disposeBag)
         
