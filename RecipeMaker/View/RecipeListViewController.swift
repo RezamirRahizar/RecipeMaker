@@ -33,6 +33,11 @@ class RecipeListViewController: UIViewController {
         bindViewModel()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.fetchItems()
+    }
+    
     private func setupViews(){
         navigationItem.title = "Recipe List"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: .add, style: .plain, target: self, action: #selector(addRecipe))
@@ -51,6 +56,7 @@ class RecipeListViewController: UIViewController {
             cell.setData(data: item)
         }.disposed(by: disposeBag)
         
+        //Go to details page
         tableView.rx.modelSelected(RecipeModel.self).bind { model in
             print(model.name)
             // Deselect the row after selection
@@ -59,7 +65,15 @@ class RecipeListViewController: UIViewController {
             }
         }.disposed(by: disposeBag)
         
-        viewModel.fetchItems()
+        //Handle deletion
+        tableView.rx.itemDeleted
+            .subscribe(onNext: { [weak self] indexPath in
+                guard var currentData = self?.viewModel.recipes.value else { return }
+                currentData.remove(at: indexPath.row)
+                self?.viewModel.recipes.accept(currentData)
+                
+            }).disposed(by: disposeBag)
+        
     }
     
     @objc func addRecipe(){

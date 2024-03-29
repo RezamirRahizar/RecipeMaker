@@ -7,10 +7,11 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import CoreData
 
 class RecipeListViewModel {
-    var recipes =  PublishSubject<[RecipeModel]>()
+    var recipes =  BehaviorRelay<[RecipeModel]>(value: [])
     let context: NSManagedObjectContext?
     let targetVC: UIViewController?
     
@@ -22,18 +23,17 @@ class RecipeListViewModel {
     func fetchItems(){
         //TODO: Replace with data from CoreData
         let models = [
-            RecipeModel(name: "Chicken", type: "Main Course", imagePath: nil, steps: [
+            RecipeModel(name: "Fried Chicken", type: "Main Course", imagePath: nil, ingredients: ["Chicken"], steps: [
                 "Cook","Bake","Eat"
-            ]),RecipeModel(name: "Beef", type: "Appetizer", imagePath: nil, steps: [
-                "Cook","Bake","Eat"
-            ]),RecipeModel(name: "Mutton", type: "Side Dish", imagePath: nil, steps: [
-                "Cook","Bake","Eat"
-            ]),RecipeModel(name: "Cake", type: "Dessert", imagePath: nil, steps: [
-                "Cook","Bake","Eat"
+            ]),RecipeModel(name: "Beef Stew", type: "Soup", imagePath: nil, ingredients: ["Beef"], steps: [
+                "Cook","Bake"
+            ]),RecipeModel(name: "Mutton Skewers", type: "Side Dish", imagePath: nil, ingredients: ["Mutton"], steps: [
+                "Cook", "Eat"
+            ]),RecipeModel(name: "Cake", type: "Dessert", imagePath: nil, ingredients: ["Flour", "Cherry", "Milk"], steps: [
+                "Bake","Eat"
             ])
         ]
 
-        recipes.onNext(models)
-        recipes.onCompleted()
+        recipes.accept(models)
     }
 }
