@@ -8,13 +8,23 @@
 import Foundation
 import UIKit
 import SnapKit
+import CoreData
 
 class AddRecipeViewController: UIViewController {
+    let context: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    
     var recipeTypes: [String]? = []
     var recipeName: String = ""
     var recipeType: String = ""
     var recipeIngredients: String = ""
     var recipeSteps: String = ""
+    var recipeImage: UIImage?
+    
+    private lazy var viewModel: AddRecipeViewModel = {
+        let viewModel = AddRecipeViewModel(context: context, targetVC: self)
+        
+        return viewModel
+    }()
     
     private let scrollView = UIScrollView()
     private lazy var stackView: UIStackView = {
@@ -172,12 +182,26 @@ class AddRecipeViewController: UIViewController {
     }
     
     @objc func addRecipe(){
-        
+        let model = RecipeModel(name: recipeName, type: recipeType, imagePath: recipeImage, ingredients: recipeIngredients, steps: recipeSteps)
+        viewModel.saveData(model: model) { [weak self] isCompleted in
+            guard isCompleted else { return }
+            self?.showSuccessPopup()
+        }
     }
     
     private func didSelectRecipe(_ selectedType: String) {
         self.recipeType = selectedType
         typeTextField.text = selectedType
+    }
+    
+    private func showSuccessPopup(){
+        let alert = UIAlertController(title: "Success", message: "Recipe saved successfully!", preferredStyle: .alert)
+    
+        self.present(alert, animated: false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+            self.dismiss(animated: true)
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 }
 
@@ -244,6 +268,7 @@ extension AddRecipeViewController: UIImagePickerControllerDelegate, UINavigation
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
             imageView.image = pickedImage
+            recipeImage = pickedImage
             imageView.snp.remakeConstraints { make in
                 make.height.equalTo(200)
             }

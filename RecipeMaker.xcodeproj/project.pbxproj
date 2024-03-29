@@ -25,6 +25,7 @@
 		A456AEA92BB69965008448A5 /* RecipeTypesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AEA82BB69965008448A5 /* RecipeTypesManager.swift */; };
 		A456AEAF2BB6AC42008448A5 /* RecipeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AEAE2BB6AC42008448A5 /* RecipeDetailsViewController.swift */; };
 		A456AEB12BB6B834008448A5 /* RecipeTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AEB02BB6B834008448A5 /* RecipeTypePickerView.swift */; };
+		A456AEDA2BB6CCA1008448A5 /* AddRecipeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A456AED92BB6CCA1008448A5 /* AddRecipeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		A456AEA82BB69965008448A5 /* RecipeTypesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTypesManager.swift; sourceTree = "<group>"; };
 		A456AEAE2BB6AC42008448A5 /* RecipeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsViewController.swift; sourceTree = "<group>"; };
 		A456AEB02BB6B834008448A5 /* RecipeTypePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTypePickerView.swift; sourceTree = "<group>"; };
+		A456AED92BB6CCA1008448A5 /* AddRecipeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewModel.swift; sourceTree = "<group>"; };
 		EB1053C3BB33BFF5CAB2CAB0 /* Pods-RecipeMaker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecipeMaker.debug.xcconfig"; path = "Target Support Files/Pods-RecipeMaker/Pods-RecipeMaker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				A456AEA02BB67AAF008448A5 /* RecipeListViewModel.swift */,
+				A456AED92BB6CCA1008448A5 /* AddRecipeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				A456AEAF2BB6AC42008448A5 /* RecipeDetailsViewController.swift in Sources */,
 				A456AEB12BB6B834008448A5 /* RecipeTypePickerView.swift in Sources */,
 				A456AE9F2BB678A1008448A5 /* RecipeListCell.swift in Sources */,
+				A456AEDA2BB6CCA1008448A5 /* AddRecipeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

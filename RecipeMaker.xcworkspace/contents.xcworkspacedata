@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/000753/Development/Personal/RecipeMaker/RecipeMaker/Model/Data/RecipeItem+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/000753/Development/Personal/RecipeMaker/RecipeMaker/Model/Data/RecipeItem+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:RecipeMaker.xcodeproj">
    </FileRef>
    <FileRef

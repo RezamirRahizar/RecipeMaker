@@ -18,8 +18,10 @@ extension RecipeItem {
 
     @NSManaged public var name: String?
     @NSManaged public var type: String?
-    @NSManaged public var imagePath: String?
+    @NSManaged public var imagePath: Data?
+    @NSManaged public var ingredients: String?
     @NSManaged public var steps: String?
+    
 
 }
 

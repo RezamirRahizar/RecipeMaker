@@ -13,7 +13,7 @@ struct RecipeModel {
     let name: String
     let type: String
     let imagePath: UIImage?
-    let ingredients: [String]
-    let steps: [String]
+    let ingredients: String
+    let steps: String
     
 }
