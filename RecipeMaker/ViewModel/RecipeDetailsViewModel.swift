@@ -21,16 +21,25 @@ class RecipeDetailsViewModel {
         self.targetVC = targetVC
     }
     
-    func saveData(model: RecipeModel, onCompletion: ((Bool) -> Void)){
+    func saveData(model: RecipeModel, recipeItem: RecipeItem?, onCompletion: ((Bool) -> Void)){
         guard let context else { return }
-        let newRecipe = RecipeItem(context: context)
-        newRecipe.name = model.name
-        newRecipe.type = model.type
-        if let imageData = model.imagePath?.jpegData(compressionQuality: 1.0){
-            newRecipe.imagePath = imageData
+        var item: RecipeItem
+        
+        if let recipeItem {
+            item = recipeItem
+        }else{
+            item = RecipeItem(context: context)
         }
-        newRecipe.ingredients = model.ingredients
-        newRecipe.steps = model.steps
+        
+        item.name = model.name
+        item.type = model.type
+        if let imageData = model.imagePath?.jpegData(compressionQuality: 1.0){
+            item.imagePath = imageData
+        }
+        item.ingredients = model.ingredients
+        item.steps = model.steps
+        
+       
         
         do {
             try context.save()

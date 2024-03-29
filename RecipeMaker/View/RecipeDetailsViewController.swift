@@ -17,7 +17,7 @@ enum DetailsState {
 
 class RecipeDetailsViewController: UIViewController {
     let context: NSManagedObjectContext? = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-    
+    var currentItem: RecipeItem? = nil
     var recipeTypes: [String]? = []
     var recipeName: String = ""
     var recipeType: String = ""
@@ -130,7 +130,7 @@ class RecipeDetailsViewController: UIViewController {
         let button = UIButton(type: .system)
         
         button.setTitle("Add recipe", for: .normal)
-        button.addTarget(self, action: #selector(addRecipe), for: .touchUpInside)
+        button.addTarget(self, action: #selector(saveRecipe), for: .touchUpInside)
         button.setTitleColor(.white, for: .normal)
         
         button.backgroundColor = .systemBlue
@@ -181,8 +181,11 @@ class RecipeDetailsViewController: UIViewController {
     
     func setDetails(data: RecipeItem?){
         guard let data else { return }
-        self.navigationItem.title = "Recipe Details"
+        self.currentItem = data
+        navigationItem.title = "Recipe Details"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", image: nil, target: self, action: #selector(editRecipe))
         self.submitButton.isHidden = true
+        
         if let name = data.name {
             recipeName = name
             nameTextField.text = name
@@ -201,7 +204,7 @@ class RecipeDetailsViewController: UIViewController {
             imageView.snp.remakeConstraints { make in
                 make.height.equalTo(200)
             }
-            imagePickerButton.isEnabled = false
+            imagePickerButton.isHidden = true
         }
         
         if let ingredients = data.ingredients {
@@ -226,12 +229,23 @@ class RecipeDetailsViewController: UIViewController {
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @objc func addRecipe(){
+    @objc func saveRecipe(){
         let model = RecipeModel(name: recipeName, type: recipeType, imagePath: recipeImage, ingredients: recipeIngredients, steps: recipeSteps)
-        viewModel.saveData(model: model) { [weak self] isCompleted in
+        viewModel.saveData(model: model, recipeItem: currentItem) { [weak self] isCompleted in
             guard isCompleted else { return }
             self?.showSuccessPopup()
         }
+    }
+    
+    @objc func editRecipe(){
+        self.submitButton.isHidden = false
+        nameTextField.isEnabled = true
+        typeTextField.isEnabled = true
+        imagePickerButton.isHidden = false
+        ingredientsTextView.isEditable = true
+        stepsTextView.isEditable = true
+        
+        submitButton.setTitle("Save changes", for: .normal)
     }
     
     private func didSelectRecipe(_ selectedType: String) {
